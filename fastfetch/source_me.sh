@@ -15,7 +15,6 @@ if [ ! -f "${FASTFETCH_IMG_PATH}" ] || [[ "${IMG_NAME}" == *"random"* ]]; then
   fi
 fi
 
-
 export FASTFETCH_CHAFA_PATH=${HOME}/.config/fastfetch/${IMG_NAME}.chafa
-chafa "${FASTFETCH_IMG_PATH }" > "${FASTFETCH_CHAFA_PATH}"
+chafa "${FASTFETCH_IMG_PATH}" -f symbols -s 50 > "${FASTFETCH_CHAFA_PATH}"
 fastfetch

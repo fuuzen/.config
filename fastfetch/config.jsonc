@@ -19,8 +19,8 @@
     // "cursor",
     "terminal",
     "terminalfont",
-    "cpu",
-    "gpu",
+    // "cpu",
+    // "gpu",
     "memory",
     // "swap",
     "disk",
@@ -31,18 +31,18 @@
     "break",
     "colors"
   ],
-  "general": {
-    "preRun": "curl -so %TEMP%\\tmp.png https://random.taf.fyi && chafa %TEMP%\\tmp.png > %TEMP%\\tmp.chafa"
-  },
+  // "general": {
+  //   "preRun": "curl -so %TEMP%\\tmp.png https://random.taf.fyi && chafa %TEMP%\\tmp.png > %TEMP%\\tmp.chafa"
+  // },
   "logo": {
     "type": "raw",
-    "source": "%TEMP%\\tmp.chafa",
-    // "source": "${FASTFETCH_CHAFA_PATH}",
+    // "source": "%TEMP%\\tmp.chafa",
+    "source": "${FASTFETCH_CHAFA_PATH}",
     "width": 50,
     "padding": {
       "top": 0,
       "left": 0,
       "right": 2
     }
-}
+  }
 }
