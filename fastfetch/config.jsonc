@@ -1,0 +1,48 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    // "packages",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "wmtheme",
+    "theme",
+    "icons",
+    "font",
+    // "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    // "swap",
+    "disk",
+    "localip",
+    "battery",
+    "poweradapter",
+    // "locale",
+    "break",
+    "colors"
+  ],
+  "general": {
+    "preRun": "curl -so %TEMP%\\tmp.png https://random.taf.fyi && chafa %TEMP%\\tmp.png > %TEMP%\\tmp.chafa"
+  },
+  "logo": {
+    "type": "raw",
+    "source": "%TEMP%\\tmp.chafa",
+    // "source": "${FASTFETCH_CHAFA_PATH}",
+    "width": 50,
+    "padding": {
+      "top": 0,
+      "left": 0,
+      "right": 2
+    }
+}
+}
