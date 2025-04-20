@@ -5,15 +5,19 @@
 
 source "${HOME}/.config/neofetch/image.sh"
 
-export NEOFETCH_IMG_PATH=${HOME}/.config/neofetch/${IMG_NAME}
-
-if [ ! -f "${NEOFETCH_IMG_PATH}" ] || [[ "${IMG_NAME}" == *"random"* ]]; then
-  if curl -s -o "${NEOFETCH_IMG_PATH}" "${IMG_URL}"; then
-    echo "Successfully downloaded: ${NEOFETCH_IMG_PATH}"
-  else
-    echo "Failed to download ${IMG_URL}"
-  fi
-  neofetch --clean  # Clear the cache to show new image
+if [[ "${IMG_NAME}" == *"random"* ]]; then
+  NEOFETCH_IMG_PATH=/tmp/${IMG_NAME}
+  export NEOFETCH_CHAFA_PATH=/tmp/${IMG_NAME}.chafa
+else
+  NEOFETCH_IMG_PATH=${HOME}/.config/neofetch/${IMG_NAME}
+  export NEOFETCH_CHAFA_PATH=${HOME}/.config/neofetch/${IMG_NAME}.chafa
 fi
 
-neofetch --source="${NEOFETCH_IMG_PATH}"
+if [ ! -f "${NEOFETCH_CHAFA_PATH}" ]; then
+  if [ ! -f "${NEOFETCH_IMG_PATH}" ]; then
+    curl -so "${NEOFETCH_IMG_PATH}" "${IMG_URL}"
+  fi
+  chafa "${NEOFETCH_IMG_PATH}" -f symbols -s 50 > "${NEOFETCH_CHAFA_PATH}"
+fi
+
+neofetch

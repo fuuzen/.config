@@ -12,8 +12,8 @@
 
 关于图片：
 
-- `docs` 下放了特定 Logo 图片，通过 Github Page 部署，部署时指定根据 `/docs` 目录。
-- 随机 taffy 图片来自: https://github.com/fuuzen/random-taffy
+- `images_chafa` 下是已经转化为 chafa 色块的图片
+- neofetch 随机 taffy 图片来自: https://github.com/fuuzen/random-taffy
 
 已知问题：
 

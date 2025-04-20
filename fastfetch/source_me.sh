@@ -5,16 +5,13 @@
 
 source "${HOME}/.config/fastfetch/image.sh"
 
-FASTFETCH_IMG_PATH=${HOME}/.config/fastfetch/${IMG_NAME}
-
-if [ ! -f "${FASTFETCH_IMG_PATH}" ] || [[ "${IMG_NAME}" == *"random"* ]]; then
-  if curl -s -o "${FASTFETCH_IMG_PATH}" "${IMG_URL}"; then
-    echo "Successfully downloaded: ${FASTFETCH_IMG_PATH}"
-  else
-    echo "Failed to download ${IMG_URL}"
-  fi
+if [[ "${IMG_NAME}" == *"random"* ]]; then
+  min=1
+  max=${RANDOM_MAX}
+  random_number=$(( RANDOM % (max - min + 1) + min ))
+  export FASTFETCH_CHAFA_PATH=${HOME}/.config/images_chafa/${random_number}.png.chafa
+else
+  export FASTFETCH_CHAFA_PATH=${HOME}/.config/images_chafa/${IMG_NAME}.png.chafa
 fi
 
-export FASTFETCH_CHAFA_PATH=${HOME}/.config/fastfetch/${IMG_NAME}.chafa
-chafa "${FASTFETCH_IMG_PATH}" -f symbols -s 50 > "${FASTFETCH_CHAFA_PATH}"
 fastfetch
